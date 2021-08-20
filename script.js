@@ -14,12 +14,11 @@ const Choose_Box = document.getElementsByClassName("Choose_Box")[0];
 const win_point = document.getElementsByClassName("win_point")[0];
 const lose_point = document.getElementsByClassName("lose_point")[0];
 
-
 //Get All Sounds
 const Intro_music = new Audio("./assets/sounds/Intro.mp3");
-Intro_music.volume = 0.10; //decrease music volume
+Intro_music.volume = 0.1; //decrease music volume
 const Play_Music = new Audio("./assets/sounds/Play-Music.mp3");
-Play_Music.volume = 0.1;//decrease music volume
+Play_Music.volume = 0.1; //decrease music volume
 const Collide_sound = new Audio("./assets/sounds/Collide.mp3");
 const Hover_sound = new Audio("./assets/sounds/Hover.mp3");
 const Click_sound = new Audio("./assets/sounds/Click.wav");
@@ -62,32 +61,32 @@ login_btn.addEventListener("click", () => {
 // -------------------------------------------------End of Login section Script
 
 // ST of select round Script -----------------------------------------------
-Choose_Box.classList.remove('Choose_Box_up')
-Choose_Box.classList.add('Choose_Box_down')
-right_hand.classList.add('right_hand_roll')
-left_hand.classList.add('left_hand_roll')
+Choose_Box.classList.remove("Choose_Box_up");
+Choose_Box.classList.add("Choose_Box_down");
+right_hand.classList.add("right_hand_roll");
+left_hand.classList.add("left_hand_roll");
 
-setTimeout(()=>{
-Choose_Box.classList.remove('Choose_Box_down')
-Choose_Box.classList.add('Choose_Box_up');
-win_point.style.display='block';
-lose_point.style.display='block';
-banner.classList.add('banner_round_announce_move');
-},1000)
+setTimeout(() => {
+  Choose_Box.classList.remove("Choose_Box_down");
+  Choose_Box.classList.add("Choose_Box_up");
+  win_point.style.display = "block";
+  lose_point.style.display = "block";
+  banner.classList.add("banner_round_announce_move");
+}, 1000);
 
-setTimeout(()=>{
-right_hand.classList.remove('right_hand_roll')
-left_hand.classList.remove('left_hand_roll')
-},3000)
+setTimeout(() => {
+  right_hand.classList.remove("right_hand_roll");
+  left_hand.classList.remove("left_hand_roll");
+}, 3000);
 
 // -------------------------------------------------End of select round script Script
 
 // Funcitons Library -------------------------------------------------------------
 // Login in Animations and sounds
 function login_in() {
-//   Intro_music.play(); //play background intro
-Login_Section.style.display="block";
-intro_vs.classList.add("intro_vs_appear"); // vs icon appear
+  //   Intro_music.play(); //play background intro
+  Login_Section.style.display = "block";
+  intro_vs.classList.add("intro_vs_appear"); // vs icon appear
   setTimeout(() => {
     Collide_sound.play(); // play collide after 1.5s
     intro_vs.classList.remove("intro_vs_appear");
@@ -106,6 +105,6 @@ function login_out() {
 
 // Select_Round_Section_in Animations and sounds
 function Select_Round_Section_in() {
-    Play_Music.loop=true;
-    // Play_Music.play();
+  Play_Music.loop = true;
+  // Play_Music.play();
 }
