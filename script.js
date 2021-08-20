@@ -49,6 +49,7 @@ const handslinks = [
   "./assets/scissors.png",
 ];
 let randomPick = 0;
+let computer_pick=''
 
 // -------------------------------------------------End of Define Basic Element
 
@@ -98,6 +99,7 @@ paper_pick.addEventListener("click", () => {
 });
 scissors_pick.addEventListener("click", () => {
   Click_sound.play();
+  console.log(winCalculator ('scissors'))
 });
 
 
@@ -135,7 +137,7 @@ function Select_Round_Section_in() {
   Computer_score_span.textContent=0;
   round_num.textContent = 1;
   setTimeout(() => {
-    round_announce(rnd_num);
+    round_announce(round_num.textContent);
   }, 1000);
 }
 // Select_Round_Section_out Animations and sounds
@@ -210,4 +212,34 @@ function point_announce(result) {
       lose_point.style.display = "none";
     }, 1000);
   }
+}
+
+//Win Calculator Function
+function winCalculator (player_pick) {
+let handsArrayCopy=Array.from(handsArray);
+let index= handsArrayCopy.indexOf(player_pick);
+handsArrayCopy.splice(index,1);
+randomPick=Math.round(Math.random()*1);
+computer_pick=handsArrayCopy[randomPick];
+
+switch(true) {
+case (player_pick=='rock'&&computer_pick=='scissors'):
+return 'win';
+break;
+case (player_pick=='scissors'&&computer_pick=='paper'):
+return 'win';
+break;
+case (player_pick=='paper'&&computer_pick=='rock'):
+return 'win';
+break;
+case (player_pick=='rock'&&computer_pick=='paper'):
+return 'lose';
+break;
+case (player_pick=='paper'&&computer_pick=='scissors'):
+return 'lose';
+break;
+case (player_pick=='scissors'&&computer_pick=='rock'):
+return 'lose';
+break;
+}
 }
