@@ -199,7 +199,7 @@ body {
   /* animation: intro_left_hand_move 1s cubic-bezier(0.6, -0.28, 0.74, 0.05) 0.5s 1 forwards; */
 }
 
-.vs_area{
+.vs_area {
   display: flex;
   justify-content: center;
   width: 100%;
@@ -333,12 +333,44 @@ body {
   transform: scale(1, 1) rotate(-10deg);
 }
 
+.win_point {
+  display: none;
+  position: absolute;
+  left: 19vw;
+  top: 16vh;
+  font-size: 12vh;
+  font-weight: 900;
+  color: rgb(59, 236, 59);
+  animation: point_move 1s infinite forwards;
+}
+
+.lose_point {
+  display: none;
+  position: absolute;
+  right: 19vw;
+  top: 16vh;
+  font-size: 12vh;
+  font-weight: 900;
+  color: #ff3636;
+  animation: point_move 1s infinite forwards;
+}
+
 @keyframes hand_up_down {
   33% {
     top: 31vh;
   }
   66% {
     top: 33vh;
+  }
+}
+
+@keyframes point_move {
+  50% {
+    opacity: 100%;
+  }
+  100% {
+    transform: translate(0, -50%);
+    opacity: 0%;
   }
 }
 /* -------------------------------end of select round section*/
