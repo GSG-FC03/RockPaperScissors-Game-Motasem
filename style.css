@@ -182,6 +182,10 @@ body {
   animation: Select_Round_Section_in 1s forwards;
 }
 
+.Select_Round_Section_out{
+  animation: Select_Round_Section_out 1s forwards;
+}
+
 .right_hand {
   position: absolute;
   height: 27vh;
@@ -259,7 +263,7 @@ body {
   font-weight: bold;
   text-align: center;
   width: 15vw;
-  height: 6vh;
+  height: 7vh;
   overflow: hidden;
 }
 .player_score_p {
@@ -382,6 +386,12 @@ body {
   100%{opacity: 1;}
 }
 
+@keyframes Select_Round_Section_out {
+  0%{
+    opacity: 1;
+  }
+  100%{opacity: 0;}
+}
 
 @keyframes hand_up_down {
   33% {
