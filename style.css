@@ -29,6 +29,10 @@ body {
 /* ---------------------end of Backgournd */
 
 /* St of login section ------------------- */
+.Login_Section{
+  display: none;
+}
+
 .Login_Section_Out{
 animation: Login_Section_Out 0.5s ease-out forwards;
 }
@@ -167,3 +171,29 @@ animation: Login_Section_Out 0.5s ease-out forwards;
 }
 
 /* -------------------------------End of login section*/
+
+/* St of select round section ------------------- */
+.right_hand{
+  position: absolute;
+  height: 27vh;
+  top: 28vh;
+  right: 9vw;
+}
+
+.left_hand{
+  position: absolute;
+  height: 27vh;
+  top: 28vh;
+  left: 9vw;
+  transform: scaleX(-1);
+  /* animation: intro_left_hand_move 1s cubic-bezier(0.6, -0.28, 0.74, 0.05) 0.5s 1 forwards; */
+}
+
+.vs{
+  position: absolute;
+  height: 24vh;
+  top: 29vh;
+  left: 42vw;
+}
+
+/* -------------------------------select round section*/

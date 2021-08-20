@@ -25,7 +25,7 @@ let randomPick = 0;
 
 // ST of Login section Script -----------------------------------------------
 // Login_in Animations
-login_in();
+// login_in();
 
 //Code for login Button
 login_btn.addEventListener("mouseover", () => {
@@ -55,8 +55,9 @@ login_btn.addEventListener("click", () => {
 // Funcitons Library -------------------------------------------------------------
 // Login in Animations and sounds
 function login_in() {
-  Intro_music.play(); //play background intor
-  intro_vs.classList.add("intro_vs_appear"); // vs icon appear
+//   Intro_music.play(); //play background intro
+Login_Section.style.display="block";
+intro_vs.classList.add("intro_vs_appear"); // vs icon appear
   setTimeout(() => {
     Collide_sound.play(); // play collide after 1.5s
     intro_vs.classList.remove("intro_vs_appear");
@@ -75,5 +76,6 @@ function login_out() {
 
 // Select_Round_Section_in Animations and sounds
 function Select_Round_Section_in() {
-    Play_Music.play()
+    Play_Music.loop=true;
+    // Play_Music.play();
 }
