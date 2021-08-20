@@ -22,6 +22,8 @@ const paper_pick = document.getElementsByClassName("paper_pick")[0];
 const scissors_pick = document.getElementsByClassName("scissors_pick")[0];
 const win_point = document.getElementsByClassName("win_point")[0];
 const lose_point = document.getElementsByClassName("lose_point")[0];
+const player_score_span = document.getElementsByClassName("player_score_span")[0];
+const Computer_score_span = document.getElementsByClassName("Computer_score_span")[0];
 
 //Get All Sounds
 const Intro_music = new Audio("./assets/sounds/Intro.mp3");
@@ -47,7 +49,7 @@ const handslinks = [
   "./assets/scissors.png",
 ];
 let randomPick = 0;
-let rnd_num = 1;
+
 // -------------------------------------------------End of Define Basic Element
 
 // ST of Login section Script -----------------------------------------------
@@ -88,19 +90,16 @@ scissors_pick.addEventListener("mouseover", () => {
 
 rock_pick.addEventListener("click", () => {
   Click_sound.play();
+  point_announce("win");
 });
 paper_pick.addEventListener("click", () => {
   Click_sound.play();
+  point_announce("lose");
 });
 scissors_pick.addEventListener("click", () => {
   Click_sound.play();
 });
 
-// setTimeout(() => {
-//   win_point.style.display = "block";
-//   lose_point.style.display = "block";
-//   banner.classList.add("banner_round_announce_move");
-// }, 1000);
 
 // -------------------------------------------------End of select round script Script
 
@@ -132,8 +131,9 @@ function Select_Round_Section_in() {
   Play_Music.play();
   Select_Round_Section.style.display = "block";
   player_name_p.textContent = user_name;
-  rnd_num = 1;
-  round_num.textContent = rnd_num;
+  player_score_span.textContent=0;
+  Computer_score_span.textContent=0;
+  round_num.textContent = 1;
   setTimeout(() => {
     round_announce(rnd_num);
   }, 1000);
@@ -191,4 +191,23 @@ function round_announce(rnd_num) {
   setTimeout(() => {
     banner.classList.remove("banner_round_announce_move");
   }, 1000);
+}
+
+//Win Point function Animations and sounds
+function point_announce(result) {
+  if (result == "win") {
+    player_score_span.textContent=parseInt(player_score_span.textContent)+1;
+    WinPoint_sound.play();
+    win_point.style.display = "block";
+    setTimeout(() => {
+      win_point.style.display = "none";
+    }, 1000);
+  } else if (result == "lose") {
+    Computer_score_span.textContent=parseInt(Computer_score_span.textContent)+1;
+    LosePoint_sound.play();
+    lose_point.style.display = "block";
+    setTimeout(() => {
+      lose_point.style.display = "none";
+    }, 1000);
+  }
 }
