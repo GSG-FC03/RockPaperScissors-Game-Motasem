@@ -15,7 +15,7 @@ body {
   background-size: cover;
 }
 
-#background-elipse {
+#background_elipse {
   position: absolute;
   border: 4vh solid #ff3636;
   left: -1vw;
@@ -29,19 +29,20 @@ body {
 /* ---------------------end of Backgournd */
 
 /* St of login section ------------------- */
-.intro-right-hand {
+.intro_right_hand {
   position: absolute;
   height: 27vh;
   top: 32vh;
   right: 35vw;
 }
 
-.intro-righ-hand-move {/* Animation*/
-  animation: intro-righ-hand-move 1s cubic-bezier(0.6, -0.28, 0.74, 0.05) 0.5s 1
+.intro_righ_hand_move {
+  /* Animation*/
+  animation: intro_righ_hand_move 1s cubic-bezier(0.6, -0.28, 0.74, 0.05) 0.5s 1
     forwards;
 }
 
-.intro-left-hand {
+.intro_left_hand {
   position: absolute;
   height: 27vh;
   top: 11vh;
@@ -49,28 +50,31 @@ body {
   transform: scaleX(-1);
 }
 
-.intro-left-hand-move { /* Animation*/
-  animation: intro-left-hand-move 1s cubic-bezier(0.6, -0.28, 0.74, 0.05) 0.5s 1
+.intro_left_hand_move {
+  /* Animation*/
+  animation: intro_left_hand_move 1s cubic-bezier(0.6, -0.28, 0.74, 0.05) 0.5s 1
     forwards;
 }
 
-.intro-vs {
+.intro_vs {
   position: absolute;
   height: 41vh;
   top: 12vh;
   left: 38.5vw;
 }
 
-.intro-vs-appear {/* Animation*/
-  animation: intro-vs-appear 1s cubic-bezier(0.6, -0.28, 0.74, 0.05) 0.5s 1
+.intro_vs_appear {
+  /* Animation*/
+  animation: intro_vs_appear 1s cubic-bezier(0.6, -0.28, 0.74, 0.05) 0.5s 1
     forwards;
 }
 
-.intro-vs-rotate {/* Animation*/
-  animation: intro-vs-rotate 1s linear infinite;
+.intro_vs_rotate {
+  /* Animation*/
+  animation: intro_vs_rotate 1s linear infinite;
 }
 
-.input-name {
+.input_name {
   position: absolute;
   height: 7vh;
   width: 25vw;
@@ -84,11 +88,24 @@ body {
   text-align: center;
 }
 
-.input-name:focus {
+.input_name:focus {
   outline: none;
 }
 
-.login-btn {
+.error_msg {
+  display: none;
+  position: absolute;
+  height: 7vh;
+  width: 25vw;
+  top: 62vh;
+  left: 37.5vw;
+  font-size: 2.5vh;
+  font-weight: bold;
+  text-align: center;
+  color: #ff3636;
+}
+
+.login_btn {
   position: absolute;
   height: 10vh;
   width: 18vw;
@@ -103,15 +120,15 @@ body {
   color: white;
 }
 
-.login-btn:hover {
+.login_btn:hover {
   transform: scale(1.1, 1.1);
 }
 
-.login-btn:active {
+.login_btn:active {
   transform: scale(1, 1);
 }
 
-@keyframes intro-righ-hand-move {
+@keyframes intro_righ_hand_move {
   0% {
     right: 10vw;
     opacity: 0%;
@@ -121,7 +138,7 @@ body {
   }
 }
 
-@keyframes intro-left-hand-move {
+@keyframes intro_left_hand_move {
   0% {
     left: 12vw;
     opacity: 0%;
@@ -131,7 +148,7 @@ body {
   }
 }
 
-@keyframes intro-vs-appear {
+@keyframes intro_vs_appear {
   0% {
     opacity: 0%;
     transform: scale(0, 0);
@@ -141,7 +158,7 @@ body {
   }
 }
 
-@keyframes intro-vs-rotate {
+@keyframes intro_vs_rotate {
   33% {
     transform: rotate(-0.01turn);
   }
