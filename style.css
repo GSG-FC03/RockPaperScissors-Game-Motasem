@@ -29,8 +29,12 @@ body {
 /* ---------------------end of Backgournd */
 
 /* St of login section ------------------- */
-.Login_Section_Out{
-animation: Login_Section_Out 0.5s ease-out forwards;
+.Login_Section {
+  display: none;
+}
+
+.Login_Section_Out {
+  animation: Login_Section_Out 0.5s ease-out forwards;
 }
 
 .intro_right_hand {
@@ -39,7 +43,7 @@ animation: Login_Section_Out 0.5s ease-out forwards;
   top: 32vh;
   right: 35vw;
   animation: intro_righ_hand_move 1s cubic-bezier(0.6, -0.28, 0.74, 0.05) 0.5s 1
-  forwards;
+    forwards;
 }
 
 .intro_left_hand {
@@ -49,7 +53,7 @@ animation: Login_Section_Out 0.5s ease-out forwards;
   left: 31vw;
   transform: scaleX(-1);
   animation: intro_left_hand_move 1s cubic-bezier(0.6, -0.28, 0.74, 0.05) 0.5s 1
-  forwards;
+    forwards;
 }
 
 .intro_vs {
@@ -114,6 +118,7 @@ animation: Login_Section_Out 0.5s ease-out forwards;
   text-align: center;
   background-color: #ff3636;
   color: white;
+  transition: 0.2s;
 }
 
 .login_btn:hover {
@@ -125,7 +130,10 @@ animation: Login_Section_Out 0.5s ease-out forwards;
 }
 
 @keyframes Login_Section_Out {
-  100% {transform: translate(0%,-6vw); opacity: 0%;}
+  100% {
+    transform: translate(0%, -6vw);
+    opacity: 0%;
+  }
 }
 @keyframes intro_righ_hand_move {
   0% {
@@ -167,3 +175,170 @@ animation: Login_Section_Out 0.5s ease-out forwards;
 }
 
 /* -------------------------------End of login section*/
+
+/* St of select round section ------------------- */
+.Select_Round_Section {
+  display: block;
+}
+
+.right_hand {
+  position: absolute;
+  height: 27vh;
+  top: 32vh;
+  right: 9vw;
+  animation: hand_up_down 1s infinite linear;
+}
+
+.left_hand {
+  position: absolute;
+  height: 27vh;
+  top: 32vh;
+  left: 9vw;
+  transform: scaleX(-1);
+  animation: hand_up_down 1s infinite linear 0.5s;
+  /* animation: intro_left_hand_move 1s cubic-bezier(0.6, -0.28, 0.74, 0.05) 0.5s 1 forwards; */
+}
+
+.vs_area{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.vs {
+  position: absolute;
+  height: 24vh;
+  top: 32vh;
+  /* margin: auto; */
+  /* left: 42vw; */
+  animation: intro_vs_rotate 1s linear infinite; /* Animation*/
+}
+
+.banner {
+  position: relative;
+  top: 0vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  /* To help aligning */
+  /* border: 2px solid red;  */
+}
+
+.banner_img {
+  height: 28vh;
+}
+
+.banner_text {
+  position: absolute;
+  top: 5vh;
+  left: 0vw;
+  color: white;
+  font-size: 5vh;
+  font-weight: bold;
+  width: 100%;
+  text-align: center;
+}
+
+.player_name_p {
+  position: absolute;
+  top: 56.5vh;
+  left: 14.3vw;
+  color: #ff3636;
+  font-size: 5vh;
+  font-weight: bold;
+  text-align: center;
+  width: 13vw;
+  height: 6vh;
+  overflow: hidden;
+}
+.player_score_p {
+  position: absolute;
+  top: 63.5vh;
+  left: 17.3vw;
+  color: black;
+  font-size: 4vh;
+  font-weight: bold;
+}
+
+.Computer_name_p {
+  position: absolute;
+  top: 56.5vh;
+  right: 15vw;
+  color: #ff3636;
+  font-size: 5vh;
+  font-weight: bold;
+  text-align: center;
+}
+
+.Computer_score_p {
+  position: absolute;
+  top: 63.5vh;
+  right: 17vw;
+  color: black;
+  font-size: 4vh;
+  font-weight: bold;
+}
+
+.Choose_Box {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  height: 23vh;
+  width: 45vw;
+  bottom: 0vh;
+  right: 26.5vw;
+  border: solid 1vh #ff3636;
+  border-radius: 16vh;
+}
+
+.Choose_text {
+  color: #ff3636;
+  font-weight: bold;
+  font-size: 4vh;
+}
+
+.hands {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+}
+
+.rock_pick,
+.paper_pick,
+.scissors_pick {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: bold;
+  font-size: 3vh;
+  transition: 0.05s;
+}
+.rock_img,
+.paper_img,
+.scissors_img {
+  height: 10vh;
+  transform: scaleX(-1);
+}
+
+.rock_pick:hover,
+.paper_pick:hover,
+.scissors_pick:hover {
+  transform: scale(1.15, 1.15);
+}
+
+.rock_pick:active,
+.paper_pick:active,
+.scissors_pick:active {
+  transform: scale(1, 1) rotate(-10deg);
+}
+
+@keyframes hand_up_down {
+  33% {
+    top: 31vh;
+  }
+  66% {
+    top: 33vh;
+  }
+}
+/* -------------------------------end of select round section*/
