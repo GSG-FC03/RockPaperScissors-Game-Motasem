@@ -33,7 +33,12 @@ body {
   position: absolute;
   height: 27vh;
   top: 32vh;
-  right: 29vw;
+  right: 35vw;
+}
+
+.intro-righ-hand-move {/* Animation*/
+  animation: intro-righ-hand-move 1s cubic-bezier(0.6, -0.28, 0.74, 0.05) 0.5s 1
+    forwards;
 }
 
 .intro-left-hand {
@@ -44,11 +49,25 @@ body {
   transform: scaleX(-1);
 }
 
+.intro-left-hand-move { /* Animation*/
+  animation: intro-left-hand-move 1s cubic-bezier(0.6, -0.28, 0.74, 0.05) 0.5s 1
+    forwards;
+}
+
 .intro-vs {
   position: absolute;
   height: 41vh;
   top: 12vh;
-  left: 40vw;
+  left: 38.5vw;
+}
+
+.intro-vs-appear {/* Animation*/
+  animation: intro-vs-appear 1s cubic-bezier(0.6, -0.28, 0.74, 0.05) 0.5s 1
+    forwards;
+}
+
+.intro-vs-rotate {/* Animation*/
+  animation: intro-vs-rotate 1s linear infinite;
 }
 
 .input-name {
@@ -56,7 +75,7 @@ body {
   height: 7vh;
   width: 25vw;
   top: 66vh;
-  left: 38.5vw;
+  left: 37.5vw;
   border: solid 0.6vh;
   border-color: #ff3636;
   border-radius: 5vh;
@@ -74,7 +93,7 @@ body {
   height: 10vh;
   width: 18vw;
   top: 80vh;
-  left: 42.5vw;
+  left: 41.5vw;
   border: none;
   border-radius: 5vh;
   font-size: 4vh;
@@ -85,17 +104,50 @@ body {
 }
 
 .login-btn:hover {
-  height: 11vh;
-  width: 19vw;
-  top: 79.5vh;
-  left: 42vw;
+  transform: scale(1.1, 1.1);
 }
 
 .login-btn:active {
-  height: 10vh;
-  width: 18vw;
-  top: 80vh;
-  left: 42.5vw;
+  transform: scale(1, 1);
+}
+
+@keyframes intro-righ-hand-move {
+  0% {
+    right: 10vw;
+    opacity: 0%;
+  }
+  20% {
+    opacity: 100%;
+  }
+}
+
+@keyframes intro-left-hand-move {
+  0% {
+    left: 12vw;
+    opacity: 0%;
+  }
+  20% {
+    opacity: 100%;
+  }
+}
+
+@keyframes intro-vs-appear {
+  0% {
+    opacity: 0%;
+    transform: scale(0, 0);
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+
+@keyframes intro-vs-rotate {
+  33% {
+    transform: rotate(-0.01turn);
+  }
+  66% {
+    transform: rotate(0.01turn);
+  }
 }
 
 /* -------------------------------End of login section*/
