@@ -178,7 +178,8 @@ body {
 
 /* St of select round section ------------------- */
 .Select_Round_Section {
-  display: block;
+  display: none;
+  animation: Select_Round_Section_in 1s forwards;
 }
 
 .right_hand {
@@ -223,7 +224,7 @@ body {
 }
 
 .banner_round_announce_move {
-  animation: 2s banner_round_announce_move;
+  animation: 0.5s banner_round_announce_move 2;
 }
 
 .banner_img_flex {
@@ -374,6 +375,14 @@ body {
   animation: point_move 1s forwards;
 }
 
+@keyframes Select_Round_Section_in {
+  0%{
+    opacity: 0;
+  }
+  100%{opacity: 1;}
+}
+
+
 @keyframes hand_up_down {
   33% {
     top: 31vh;
@@ -412,11 +421,8 @@ body {
 }
 
 @keyframes banner_round_announce_move {
-  33% {
-    transform: scale(1.3, 1.3);
-  }
-  66% {
-    transform: scale(1.3, 1.3);
+ 50% {
+    transform: scale(1.2, 1.2);
   }
 }
 
