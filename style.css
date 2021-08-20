@@ -173,6 +173,11 @@ animation: Login_Section_Out 0.5s ease-out forwards;
 /* -------------------------------End of login section*/
 
 /* St of select round section ------------------- */
+.Select_Round_Section{
+  display: block;
+}
+
+
 .right_hand{
   position: absolute;
   height: 27vh;
@@ -196,4 +201,55 @@ animation: Login_Section_Out 0.5s ease-out forwards;
   left: 42vw;
 }
 
-/* -------------------------------select round section*/
+.banner{
+  position: absolute;
+  height: 28vh;
+  top: 0vh;
+  left: 40.5vw;
+}
+
+.banner_text{
+  position: absolute;
+  top: 5.5vh;
+  left: 44.3vw;
+  color:white;
+  font-size: 5vh;
+  font-weight: bold;
+}
+
+.player_name_p{
+position: absolute;
+top: 54.5vh;
+  left: 15.3vw;
+  color:#ff3636;
+  font-size: 5vh;
+  font-weight: bold;
+}
+.player_score_p{
+  position: absolute;
+  top: 62.5vh;
+  left: 17.3vw;
+  color:black;
+  font-size: 4vh;
+  font-weight: bold;
+}
+
+.Computer_name_p{
+  position: absolute;
+  top: 54.5vh;
+  right: 15vw;
+  color:#ff3636;
+  font-size: 5vh;
+  font-weight: bold;
+}
+
+.Computer_score_p{
+  position: absolute;
+  top: 62.5vh;
+  right: 17vw;
+  color:black;
+  font-size: 4vh;
+  font-weight: bold;
+}
+
+/* -------------------------------end of select round section*/
