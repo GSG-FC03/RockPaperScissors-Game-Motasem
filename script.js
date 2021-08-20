@@ -15,7 +15,13 @@ const Play_Music = new Audio("./assets/sounds/Play-Music.mp3");
 Play_Music.volume = 0.1;//decrease music volume
 const Collide_sound = new Audio("./assets/sounds/Collide.mp3");
 const Hover_sound = new Audio("./assets/sounds/Hover.mp3");
-const Click_sound = new Audio("./assets/sounds/Click.wav");
+const Click_sound = new Audio("./assets/sounds/Click.mp3");
+const Round_bell_sound = new Audio("./assets/sounds/Round_bell.mp3");
+const MoveHand_sound = new Audio("./assets/sounds/MoveHand.wav");
+const WinPoint_sound = new Audio("./assets/sounds/WinPoint.mp3");
+const LosePoint_sound = new Audio("./assets/sounds/LosePoint.mp3");
+const WinGame_sound = new Audio("./assets/sounds/WinGame.wav");
+const LoseGame_sound = new Audio("./assets/sounds/LoseGame.mp3");
 
 //Define Variables
 let user_name = "";
