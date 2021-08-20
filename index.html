@@ -1,19 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
-    <title>Rock-Paper -Scissors-Game</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Css linkage -->
+    <link rel="stylesheet" href="./style.css" />
+    <!-- Title and Icon for the page tab -->
+    <title>Rock Paper Scissors Game</title>
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="./assets/shortcutIcon.png"
+    />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="background-elipse"></div>
+    <!-- St. of Login-Section ------------------- -->
+    <section id="Login-Section">
+        <img src="./assets/rock.png" class="intro-right-hand">
+        <img src="./assets/rock.png" class="intro-left-hand">
+        <img src="./assets/vs.png" class="intro-vs">
+        <input class="input-name" type="text" placeholder="Enter Your Name">
+        <button class="login-btn">Let's Play</button>
+    </section>
+    <!---------------------- End of Login-Section -->
+    <!-- St. of select-round-Section ------------------- -->
+    <section id="select-round-Section"></section>
+    <!---------------------- End of select-round-Section -->
+    <!-- St. of Final-Result-Section ------------------- -->
+    <section id="Final-Result-Section"></section>
+    <!---------------------- End of Final-Result-Section -->
 
-<div class='box'></div>
-<button class='btn'>Click</button>
-
-
-    
-<script src="./script.js"></script>
-</body>
+    <script src="./script.js"></script>
+  </body>
 </html>
