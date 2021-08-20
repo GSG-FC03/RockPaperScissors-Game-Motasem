@@ -22,8 +22,6 @@ The User Login to the game and play 5 rounds against computer and the end the re
 
 ## ✧User Stories
 <img width="100%" height="auto" src="./assets/ProjectManagment/User-Stories.jpg"> <br>
-1- As a `Customer`, I can ***Login using my name*** so that ***I find my saved products in the cart***. <br>
-
 1. As a `Player` I can ***login with my name*** so that ***see it in the game***.
 2. As a `Player` I can ***pick choice against computer each round*** so that ***run the round***.
 3. As a `Player` I can ***see round results*** so that ***track the competition socre***.
