@@ -29,17 +29,17 @@ body {
 /* ---------------------end of Backgournd */
 
 /* St of login section ------------------- */
+.Login_Section_Out{
+animation: Login_Section_Out 0.5s ease-out forwards;
+}
+
 .intro_right_hand {
   position: absolute;
   height: 27vh;
   top: 32vh;
   right: 35vw;
-}
-
-.intro_righ_hand_move {
-  /* Animation*/
   animation: intro_righ_hand_move 1s cubic-bezier(0.6, -0.28, 0.74, 0.05) 0.5s 1
-    forwards;
+  forwards;
 }
 
 .intro_left_hand {
@@ -48,12 +48,8 @@ body {
   top: 11vh;
   left: 31vw;
   transform: scaleX(-1);
-}
-
-.intro_left_hand_move {
-  /* Animation*/
   animation: intro_left_hand_move 1s cubic-bezier(0.6, -0.28, 0.74, 0.05) 0.5s 1
-    forwards;
+  forwards;
 }
 
 .intro_vs {
@@ -128,6 +124,9 @@ body {
   transform: scale(1, 1);
 }
 
+@keyframes Login_Section_Out {
+  100% {transform: translate(0%,-6vw); opacity: 0%;}
+}
 @keyframes intro_righ_hand_move {
   0% {
     right: 10vw;
