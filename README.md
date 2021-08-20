@@ -31,19 +31,19 @@ The User Login to the game and play 5 rounds against computer and the end the re
 <br>
 
 ## ✧The wireframes (User Experiance)
-<img width="30vw" height="auto" src="./assets/UX/WF-Login-Screen.jpg">
-<img width="30vw" height="auto" src="./assets/UX/WF-Select-Screen.jpg">
-<img width="30vw" height="auto" src="./assets/UX/WF-Round-Screen.jpg">
-<img width="30vw" height="auto" src="./assets/UX/WF-Win-Screen.jpg">
+<img width="400vw" height="auto" src="./assets/UX/WF-Login-Screen.jpg">
+<img width="400vw" height="auto" src="./assets/UX/WF-Select-Screen.jpg">
+<img width="400vw" height="auto" src="./assets/UX/WF-Round-Screen.jpg">
+<img width="400vw" height="auto" src="./assets/UX/WF-Win-Screen.jpg">
 <br>
 
 ## ✧The Users Interface (The Final screens)
-<img width="30vw" height="auto" src="./assets/UI/Login-Screen.jpg">
-<img width="30vw" height="auto" src="./assets/UI/Select-Screen.jpg">
-<img width="30vw" height="auto" src="./assets/UI/Round-Screen.jpg">
-<img width="30vw" height="auto" src="./assets/UI/Point-Screen.jpg">
-<img width="30vw" height="auto" src="./assets/UI/Win-Screen.jpg">
-<img width="30vw" height="auto" src="./assets/UI/Lose-Screen.jpg">
+<img width="400vw" height="auto" src="./assets/UI/Login-Screen.jpg">
+<img width="400vw" height="auto" src="./assets/UI/Select-Screen.jpg">
+<img width="400vw" height="auto" src="./assets/UI/Round-Screen.jpg">
+<img width="400vw" height="auto" src="./assets/UI/Point-Screen.jpg">
+<img width="400vw" height="auto" src="./assets/UI/Win-Screen.jpg">
+<img width="400vw" height="auto" src="./assets/UI/Lose-Screen.jpg">
 <br>
 based on the initial wireframe, I choosed interactive icons and colors to design the game. <br>
 
@@ -65,7 +65,6 @@ go live server
 - HTML ➙ to build the structure of the pages 
 - CSS ➙ to style the application and build animations
 - JavaScript|DOM Manipulations ➙ To create interaction between the page and the user and track journey.
-- API ➙ to import/search products data.
 - PPT & GitHub➙ to manage project.
 
 ## ✧Game Created by: 
