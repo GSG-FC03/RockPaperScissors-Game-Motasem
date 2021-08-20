@@ -31,7 +31,7 @@ The User Login to the game and play 5 rounds against computer and the end the re
 <br>
 
 ## ✧The wireframes (User Experiance)
-<div style="display:inline>
+<div style="display:inline">
 <img width="400vw" height="auto" src="./assets/UX/WF-Login-Screen.jpg">
 <img width="400vw" height="auto" src="./assets/UX/WF-Select-Screen.jpg">
 <img width="400vw" height="auto" src="./assets/UX/WF-Round-Screen.jpg">
@@ -40,7 +40,7 @@ The User Login to the game and play 5 rounds against computer and the end the re
 <br>
 
 ## ✧The Users Interface (The Final screens)
-<div style="display:inline>
+<div style="display:inline">
 <img width="400vw" height="auto" src="./assets/UI/Login-Screen.jpg">
 <img width="400vw" height="auto" src="./assets/UI/Select-Screen.jpg">
 <img width="400vw" height="auto" src="./assets/UI/Round-Screen.jpg">
