@@ -12,6 +12,7 @@ const Select_Round_Section = document.getElementsByClassName(
   "Select_Round_Section"
 )[0];
 const banner = document.getElementsByClassName("banner")[0];
+const player_name_p = document.getElementsByClassName("player_name_p")[0];
 const round_num = document.getElementsByClassName("round_num")[0];
 const right_hand = document.getElementsByClassName("right_hand")[0];
 const left_hand = document.getElementsByClassName("left_hand")[0];
@@ -46,6 +47,7 @@ const handslinks = [
   "./assets/scissors.png",
 ];
 let randomPick = 0;
+let rnd_num = 1;
 // -------------------------------------------------End of Define Basic Element
 
 // ST of Login section Script -----------------------------------------------
@@ -126,9 +128,23 @@ function login_out() {
 
 // Select_Round_Section_in Animations and sounds
 function Select_Round_Section_in() {
-//   Play_Music.loop = true;
+  Play_Music.loop = true;
   Play_Music.play();
   Select_Round_Section.style.display = "block";
+  player_name_p.textContent = user_name;
+  rnd_num = 1;
+  round_num.textContent = rnd_num;
+  setTimeout(() => {
+    round_announce(rnd_num);
+  }, 1000);
+}
+// Select_Round_Section_out Animations and sounds
+function Select_Round_Section_out() {
+  Play_Music.pause();
+  Select_Round_Section.classList.add("Select_Round_Section_out");
+  setTimeout(() => {
+    Select_Round_Section.style.display = "none";
+  }, 1000);
 }
 // Choose_Box_up Animations and sounds
 function Choose_Box_up() {
@@ -146,18 +162,20 @@ function rollHands(user_hand_index, Computer_hand_index) {
   left_hand.setAttribute("src", handslinks[0]);
   right_hand.classList.add("right_hand_roll");
   left_hand.classList.add("left_hand_roll");
+
   setTimeout(() => {
-    MoveHand_sound.play()
-}, 1000);
-setTimeout(() => {
-    MoveHand_sound.play()
-}, 2000);
-setTimeout(() => {
-    Collide_sound.play()
-}, 3000);
- 
-  
+    //play sounds on 1st 2nd 3rd second
+    MoveHand_sound.play();
+  }, 1000);
   setTimeout(() => {
+    MoveHand_sound.play();
+  }, 2000);
+  setTimeout(() => {
+    Collide_sound.play();
+  }, 3000);
+
+  setTimeout(() => {
+    //change the hand based on parameters
     right_hand.setAttribute("src", handslinks[Computer_hand_index]);
     left_hand.setAttribute("src", handslinks[user_hand_index]);
     right_hand.classList.remove("right_hand_roll");
@@ -165,11 +183,12 @@ setTimeout(() => {
   }, 3000);
 }
 // Announce round function Animations and sounds
-function round_announce(rnd_num) {//enter round number
-    round_num.textContent=rnd_num;
-    Round_bell_sound.play()
-    banner.classList.add('banner_round_announce_move')
-    setTimeout(()=>{
-        banner.classList.remove('banner_round_announce_move') 
-    },1000)
+function round_announce(rnd_num) {
+  //enter round number
+  round_num.textContent = rnd_num;
+  Round_bell_sound.play();
+  banner.classList.add("banner_round_announce_move");
+  setTimeout(() => {
+    banner.classList.remove("banner_round_announce_move");
+  }, 1000);
 }
