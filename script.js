@@ -22,8 +22,12 @@ const paper_pick = document.getElementsByClassName("paper_pick")[0];
 const scissors_pick = document.getElementsByClassName("scissors_pick")[0];
 const win_point = document.getElementsByClassName("win_point")[0];
 const lose_point = document.getElementsByClassName("lose_point")[0];
-const player_score_span = document.getElementsByClassName("player_score_span")[0];
-const Computer_score_span = document.getElementsByClassName("Computer_score_span")[0];
+const draw_point = document.getElementsByClassName("draw_point")[0];
+const player_score_span =
+  document.getElementsByClassName("player_score_span")[0];
+const Computer_score_span = document.getElementsByClassName(
+  "Computer_score_span"
+)[0];
 
 //Get All Sounds
 const Intro_music = new Audio("./assets/sounds/Intro.mp3");
@@ -37,8 +41,10 @@ const Round_bell_sound = new Audio("./assets/sounds/Round_bell.mp3");
 const MoveHand_sound = new Audio("./assets/sounds/MoveHand.wav");
 const WinPoint_sound = new Audio("./assets/sounds/WinPoint.mp3");
 const LosePoint_sound = new Audio("./assets/sounds/LosePoint.mp3");
+const DrawPoint_sound = new Audio("./assets/sounds/Drawpoint.mp3");
 const WinGame_sound = new Audio("./assets/sounds/WinGame.wav");
 const LoseGame_sound = new Audio("./assets/sounds/LoseGame.mp3");
+const DrawGame_sound = new Audio("./assets/sounds/DrawGame.mp3");
 
 //Define Variables
 let user_name = "";
@@ -49,7 +55,7 @@ const handslinks = [
   "./assets/scissors.png",
 ];
 let randomPick = 0;
-let computer_pick=''
+let computer_pick = "";
 
 // -------------------------------------------------End of Define Basic Element
 
@@ -95,13 +101,12 @@ rock_pick.addEventListener("click", () => {
 });
 paper_pick.addEventListener("click", () => {
   Click_sound.play();
-  point_announce("lose");
+  point_announce("draw");
 });
 scissors_pick.addEventListener("click", () => {
   Click_sound.play();
-  console.log(winCalculator ('scissors'))
+  console.log(winCalculator("scissors"));
 });
-
 
 // -------------------------------------------------End of select round script Script
 
@@ -133,8 +138,8 @@ function Select_Round_Section_in() {
   Play_Music.play();
   Select_Round_Section.style.display = "block";
   player_name_p.textContent = user_name;
-  player_score_span.textContent=0;
-  Computer_score_span.textContent=0;
+  player_score_span.textContent = 0;
+  Computer_score_span.textContent = 0;
   round_num.textContent = 1;
   setTimeout(() => {
     round_announce(round_num.textContent);
@@ -198,48 +203,55 @@ function round_announce(rnd_num) {
 //Win Point function Animations and sounds
 function point_announce(result) {
   if (result == "win") {
-    player_score_span.textContent=parseInt(player_score_span.textContent)+1;
+    player_score_span.textContent = parseInt(player_score_span.textContent) + 1;
     WinPoint_sound.play();
     win_point.style.display = "block";
     setTimeout(() => {
       win_point.style.display = "none";
     }, 1000);
   } else if (result == "lose") {
-    Computer_score_span.textContent=parseInt(Computer_score_span.textContent)+1;
+    Computer_score_span.textContent =
+      parseInt(Computer_score_span.textContent) + 1;
     LosePoint_sound.play();
     lose_point.style.display = "block";
     setTimeout(() => {
       lose_point.style.display = "none";
     }, 1000);
+  } else if (result == "draw") {
+    DrawPoint_sound.play();
+    draw_point.style.display = "block";
+    setTimeout(() => {
+      draw_point.style.display = "none";
+    }, 1000);
   }
-}
+} 
 
 //Win Calculator Function
-function winCalculator (player_pick) {
-let handsArrayCopy=Array.from(handsArray);
-let index= handsArrayCopy.indexOf(player_pick);
-handsArrayCopy.splice(index,1);
-randomPick=Math.round(Math.random()*1);
-computer_pick=handsArrayCopy[randomPick];
+function winCalculator(player_pick) {
+  randomPick = Math.round(Math.random() * 2);
+  computer_pick = handsArray[randomPick];
 
-switch(true) {
-case (player_pick=='rock'&&computer_pick=='scissors'):
-return 'win';
-break;
-case (player_pick=='scissors'&&computer_pick=='paper'):
-return 'win';
-break;
-case (player_pick=='paper'&&computer_pick=='rock'):
-return 'win';
-break;
-case (player_pick=='rock'&&computer_pick=='paper'):
-return 'lose';
-break;
-case (player_pick=='paper'&&computer_pick=='scissors'):
-return 'lose';
-break;
-case (player_pick=='scissors'&&computer_pick=='rock'):
-return 'lose';
-break;
-}
+  switch (true) {
+    case player_pick == computer_pick:
+      return "draw";
+      break;
+    case player_pick == "rock" && computer_pick == "scissors":
+      return "win";
+      break;
+    case player_pick == "scissors" && computer_pick == "paper":
+      return "win";
+      break;
+    case player_pick == "paper" && computer_pick == "rock":
+      return "win";
+      break;
+    case player_pick == "rock" && computer_pick == "paper":
+      return "lose";
+      break;
+    case player_pick == "paper" && computer_pick == "scissors":
+      return "lose";
+      break;
+    case player_pick == "scissors" && computer_pick == "rock":
+      return "lose";
+      break;
+  }
 }

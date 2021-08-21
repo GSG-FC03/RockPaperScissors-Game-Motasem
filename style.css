@@ -379,6 +379,18 @@ body {
   animation: point_move 1s forwards;
 }
 
+.draw_point {
+  display: none;
+  position: absolute;
+  top: 25vh;
+  width: 100%;
+  text-align: center;
+  font-size: 8vh;
+  font-weight: 900;
+  color: #FF3636;
+  animation: point_move 1s forwards;
+}
+
 @keyframes Select_Round_Section_in {
   0%{
     opacity: 0;
