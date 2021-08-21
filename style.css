@@ -474,7 +474,7 @@ body {
 /* St of Final-Result-Section ------------------------------------ */
 
 .Final_Result_Section {
-  display: block;
+  display: none;
   animation: Final_Result_Section_in 1s forwards;
 }
 
