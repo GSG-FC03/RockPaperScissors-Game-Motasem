@@ -137,7 +137,7 @@ body {
 }
 @keyframes intro_righ_hand_move {
   0% {
-    transform: translate(30vw,0vh);
+    transform: translate(30vw, 0vh);
     opacity: 0%;
   }
   50% {
@@ -147,7 +147,7 @@ body {
 
 @keyframes intro_left_hand_move {
   0% {
-    transform: translate(-20vw,0vh) scaleX(-1);
+    transform: translate(-20vw, 0vh) scaleX(-1);
     opacity: 0%;
   }
   50% {
@@ -178,7 +178,7 @@ body {
 
 /* St of select round section ------------------- */
 .Select_Round_Section {
-  display: block;
+  display: none;
   animation: Select_Round_Section_in 1s forwards;
 }
 
@@ -191,7 +191,7 @@ body {
   height: 27vh;
   top: 32vh;
   right: 9vw;
-  animation: hand_up_down 1s infinite linear;
+  animation: right_hand_up_down 1s infinite linear;
 }
 
 .right_hand_roll {
@@ -204,7 +204,7 @@ body {
   top: 32vh;
   left: 9vw;
   transform: scaleX(-1);
-  animation: hand_up_down 1s infinite linear 0.5s;
+  animation: left_hand_up_down 1s infinite linear 0.5s;
 }
 
 .left_hand_roll {
@@ -367,6 +367,7 @@ body {
   font-weight: 900;
   color: rgb(59, 236, 59);
   animation: point_move 2s forwards;
+  z-index: 700;
 }
 
 .lose_point {
@@ -378,6 +379,7 @@ body {
   font-weight: 900;
   color: #ff3636;
   animation: point_move 2s forwards;
+  z-index: 700;
 }
 
 .draw_point {
@@ -390,6 +392,7 @@ body {
   font-weight: 900;
   color: #ff3636;
   animation: point_move 2s forwards;
+  z-index: 700;
 }
 
 @keyframes Select_Round_Section_in {
@@ -410,12 +413,21 @@ body {
   }
 }
 
-@keyframes hand_up_down {
+@keyframes right_hand_up_down {
   33% {
-    top: 31vh;
+    transform: translate(0vw, -1vh);
   }
   66% {
-    top: 33vh;
+    transform: translate(0vw, 1vh);
+  }
+}
+
+@keyframes left_hand_up_down {
+  33% {
+    transform: translate(0vw, -1vh) scaleX(-1);
+  }
+  66% {
+    transform: translate(0vw, 1vh) scaleX(-1);
   }
 }
 
@@ -560,7 +572,7 @@ body {
 
 /* -------------------------------end of Final-Result-Section*/
 
-
+/* St of Media query Iphone x--------------------------------------- */
 @media (max-width: 812px) {
   body {
     height: 100vh;
@@ -570,37 +582,126 @@ body {
     background-image: linear-gradient(to right, #ffc3a0 0%, #ffafbd 100%);
     background-size: cover;
   }
-  
+
   #background_elipse {
     border: 2vh solid #ff3636;
   }
-  
-  .intro_right_hand{
+
+  .intro_right_hand {
     right: 9vw;
     height: 13vh;
   }
 
-  .intro_left_hand{
+  .intro_left_hand {
     top: 22vh;
     left: 14vw;
     height: 13vh;
   }
 
-.intro_vs{
-  top: 21vh;
-  left: 24vw;
-  height: 23vh;
-}
-
-.input_name{
-width: 76vw;
-left: 11.5vw;
-}
-
-.login_btn{
-  width: 55vw;
-  left: 23.5vw;
+  .intro_vs {
+    top: 21vh;
+    left: 24vw;
+    height: 23vh;
   }
 
+  .input_name {
+    width: 76vw;
+    left: 11.5vw;
+  }
 
+  .error_msg {
+    width: 63vw;
+    left: 19.5vw;
+  }
+
+  .login_btn {
+    width: 55vw;
+    left: 23.5vw;
+  }
+
+  .banner_img {
+    height: 21vh;
+  }
+
+  .banner_text {
+    top: 4vh;
+    font-size: 4vh;
+  }
+
+  .left_hand {
+    height: 18vh;
+    top: 21vh;
+    left: 9vw;
+    z-index: 500;
+  }
+
+  .vs {
+    height: 17vh;
+    top: 29vh;
+    z-index: 600;
+  }
+
+  .right_hand {
+    height: 18vh;
+    top: 40vh;
+    right: 9vw;
+  }
+
+  .player_name_p {
+    font-size: 4vh;
+    width: 40vw;
+    left: 2vw;
+    top: 60vh;
+  }
+
+  .Computer_name_p {
+    font-size: 4vh;
+    width: 40vw;
+    right: 4vw;
+    top: 60vh;
+  }
+
+  .player_score_p {
+    top: 64.5vh;
+    left: 10.5vw;
+    font-size: 3.5vh;
+  }
+
+  .Computer_score_p {
+    top: 64.5vh;
+    right: 10vw;
+    font-size: 3.5vh;
+  }
+
+  .hands{
+    width: 90%;
+  }
+
+  .rock_img,
+  .paper_img,
+  .scissors_img {
+    height: 7vh;
+  }
+
+  .Choose_Box {
+    position: absolute;
+    right: 2vw;
+    height: 20vh;
+    width: 90vw;
+    border-radius: 10vh;
+    background-color: white;
+    z-index: 500;
+  }
+
+  .result_txt {
+    top: 60vh;
+    font-size: 10vh;
+  }
+
+  .play_again_btn {
+    width: 60vw;
+    left: 22vw;
+  }
 }
+
+/* -------------------------------------------------- End of Media query Iphone x */
