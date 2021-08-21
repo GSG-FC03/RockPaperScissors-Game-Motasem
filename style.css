@@ -574,15 +574,6 @@ body {
 
 /* St of Media query Iphone x--------------------------------------- */
 @media (max-width: 812px) {
-  body {
-    height: 100vh;
-    width: 100vw;
-    overflow-y: hidden;
-    overflow-x: hidden;
-    background-image: linear-gradient(to right, #ffc3a0 0%, #ffafbd 100%);
-    background-size: cover;
-  }
-
   #background_elipse {
     border: 2vh solid #ff3636;
   }
@@ -673,7 +664,7 @@ body {
     font-size: 3.5vh;
   }
 
-  .hands{
+  .hands {
     width: 90%;
   }
 
@@ -701,6 +692,24 @@ body {
   .play_again_btn {
     width: 60vw;
     left: 22vw;
+  }
+
+  @keyframes Choose_Box_down {
+    0% {
+      transform: translate(0vh, 0vh);
+    }
+    100% {
+      transform: translate(0vh, 25vh);
+    }
+  }
+
+  @keyframes Choose_Box_up {
+    0% {
+      transform: translate(0vh, 25vh);
+    }
+    100% {
+      transform: translate(0vh, 0vh);
+    }
   }
 }
 
