@@ -50,7 +50,7 @@ The User Login to the game and play 5 rounds against computer and the end the re
 based on the initial wireframe, I choosed interactive icons and colors to design the game. <br>
 
 ## ✧Adding Sounds-effects
-![image](https://user-images.githubusercontent.com/83221547/130249544-aea8db93-58d1-433b-9ac2-be2492b4d0a9.png)
+![image](https://user-images.githubusercontent.com/83221547/130249544-aea8db93-58d1-433b-9ac2-be2492b4d0a9.png) <br>
 The Game became Interactive by adding sound effects, I first defined what sounds were needed for the game in the UI, then I searched free sound libraries and test options till reaching the current sounds.
 
 ## ✧Project Github Management
