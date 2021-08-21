@@ -231,6 +231,7 @@ play_again_btn.addEventListener("click", () => {
 // ----------------------------------------------------------------------------------
 // Login in Animations and sounds
 function login_in() {
+  input_name.value = "Player"; //Put value for lazy players
   Intro_music.pause();
   Intro_music.currentTime = 0;
   Intro_music.play(); //play background intro

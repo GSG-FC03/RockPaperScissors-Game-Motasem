@@ -573,7 +573,7 @@ body {
 /* -------------------------------end of Final-Result-Section*/
 
 /* St of Media query Iphone x--------------------------------------- */
-@media (max-width: 812px) {
+@media (max-width: 700px) {
   #background_elipse {
     border: 2vh solid #ff3636;
   }
@@ -591,7 +591,7 @@ body {
 
   .intro_vs {
     top: 21vh;
-    left: 24vw;
+    left: 33vw;
     height: 23vh;
   }
 
@@ -717,3 +717,149 @@ body {
 }
 
 /* -------------------------------------------------- End of Media query Iphone x */
+
+/* St of Media query Ipad--------------------------------------- */
+@media (min-width: 700px) and (max-width: 1148px) {
+  #background_elipse {
+    border: 2vh solid #ff3636;
+  }
+
+  .intro_right_hand {
+    right: 19vw;
+    height: 18vh;
+  }
+
+  .intro_left_hand {
+    top: 22vh;
+    left: 19vw;
+    height: 18vh;
+  }
+
+  .intro_vs {
+    top: 21vh;
+    left: 38vw;
+    height: 23vh;
+  }
+
+  .input_name {
+    width: 59vw;
+    left: 20.5vw;
+  }
+
+  .error_msg {
+    width: 63vw;
+    left: 19.5vw;
+  }
+
+  .login_btn {
+    width: 44vw;
+    left: 28.5vw;
+  }
+
+  .banner_img {
+    height: 21vh;
+  }
+
+  .banner_text {
+    top: 4vh;
+    font-size: 4vh;
+  }
+
+  .left_hand {
+    height: 21vh;
+    top: 28vh;
+    left: 6vw;
+    z-index: 500;
+  }
+
+  .vs {
+    height: 17vh;
+    top: 29vh;
+    z-index: 600;
+  }
+
+  .right_hand {
+    height: 21vh;
+    top: 28vh;
+    right: 6vw;
+  }
+
+  .player_name_p {
+    font-size: 4vh;
+    width: 40vw;
+    left: 2vw;
+    top: 60vh;
+  }
+
+  .Computer_name_p {
+    font-size: 4vh;
+    width: 40vw;
+    right: 4vw;
+    top: 60vh;
+  }
+
+  .player_score_p {
+    top: 64.5vh;
+    left: 16.5vw;
+    font-size: 3.5vh;
+  }
+
+  .Computer_score_p {
+    top: 64.5vh;
+    right: 18vw;
+    font-size: 3.5vh;
+  }
+
+  .hands {
+    width: 90%;
+  }
+
+  .rock_img,
+  .paper_img,
+  .scissors_img {
+    height: 7vh;
+  }
+
+  .Choose_Box {
+    position: absolute;
+    right: 12vw;
+    height: 20vh;
+    width: 73vw;
+    border-radius: 10vh;
+    background-color: white;
+    z-index: 500;
+    bottom: 0vh;
+  }
+
+  .result_txt {
+    top: 60vh;
+    font-size: 10vh;
+  }
+
+  .play_again_btn {
+    width: 60vw;
+    left: 22vw;
+  }
+
+  @keyframes Choose_Box_down {
+    0% {
+      transform: translate(0vh, 0vh);
+    }
+    100% {
+      transform: translate(0vh, 2vh);
+      opacity: 0;
+    }
+  }
+
+  @keyframes Choose_Box_up {
+    0% {
+      opacity: 0;
+      transform: translate(0vh, 2vh);
+    }
+    100% {
+      transform: translate(0vh, 0vh);
+    }
+  }
+}
+
+/* -------------------------------------------------- End of Media query Ipad */
