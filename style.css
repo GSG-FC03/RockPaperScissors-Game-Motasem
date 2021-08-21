@@ -342,6 +342,7 @@ body {
 .paper_img,
 .scissors_img {
   height: 10vh;
+  /* width:10vw; */
   transform: scaleX(-1);
 }
 
@@ -513,7 +514,7 @@ body {
   left: 41.5vw;
   border: none;
   border-radius: 5vh;
-  font-size: 4vh;
+  font-size: 3.8vh;
   font-weight: bold;
   text-align: center;
   background-color: #ff3636;

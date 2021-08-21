@@ -1,4 +1,7 @@
 // St of Define Basic Element --------------------------------------------
+//Define Number of rounds
+let max_rounds = 5;
+
 // Get Elements from DOM
 const Login_Section = document.getElementsByClassName("Login_Section")[0];
 const intro_right_hand = document.getElementsByClassName("intro_right_hand")[0];
@@ -33,6 +36,7 @@ const Final_Result_Section = document.getElementsByClassName(
 )[0];
 const result_img = document.getElementsByClassName("result_img")[0];
 const result_txt = document.getElementsByClassName("result_txt")[0];
+const play_again_btn = document.getElementsByClassName("play_again_btn")[0];
 
 //Get All Sounds
 const Intro_music = new Audio("./assets/sounds/Intro.mp3");
@@ -72,10 +76,14 @@ login_in();
 
 //Code for login Button
 login_btn.addEventListener("mouseover", () => {
+  Hover_sound.pause();
+  Hover_sound.currentTime = 0;
   Hover_sound.play();
 });
 
 login_btn.addEventListener("click", () => {
+  Click_sound.pause();
+  Click_sound.currentTime = 0;
   Click_sound.play();
   if (input_name.value == "" || input_name.value == null) {
     error_msg.style.display = "block";
@@ -100,6 +108,8 @@ window.addEventListener("mouseover", (event) => {
     event.target.parentElement.getAttribute("class") == "paper_pick" ||
     event.target.parentElement.getAttribute("class") == "scissors_pick"
   ) {
+    Hover_sound.pause();
+    Hover_sound.currentTime = 0;
     Hover_sound.play();
   }
 });
@@ -111,9 +121,12 @@ window.addEventListener("click", (event) => {
     (event.target.parentElement.getAttribute("class") == "rock_pick" ||
       event.target.parentElement.getAttribute("class") == "paper_pick" ||
       event.target.parentElement.getAttribute("class") == "scissors_pick") &&
-    round_num.textContent < 10
+    round_num.textContent < max_rounds
   ) {
-    Click_sound.play(); //click sound
+    Click_sound.pause(); //click sound
+    Click_sound.currentTime = 0;
+    Click_sound.play();
+
     Choose_Box_down(); //box down
     switch (
       true //define player value
@@ -133,6 +146,7 @@ window.addEventListener("click", (event) => {
     }
 
     let result = winCalculator(player_pick); //calculate result
+    console.log(result);
     rollHands(player_hand_index, Computer_hand_index); //run hands move
     setTimeout(() => {
       point_announce(result); //announce results
@@ -148,9 +162,12 @@ window.addEventListener("click", (event) => {
     (event.target.parentElement.getAttribute("class") == "rock_pick" ||
       event.target.parentElement.getAttribute("class") == "paper_pick" ||
       event.target.parentElement.getAttribute("class") == "scissors_pick") &&
-    round_num.textContent == 10
+    round_num.textContent == max_rounds
   ) {
-    Click_sound.play(); //click sound
+    Click_sound.pause(); //click sound
+    Click_sound.currentTime = 0;
+    Click_sound.play();
+
     Choose_Box_down(); //box down
     switch (
       true //define player value
@@ -170,6 +187,7 @@ window.addEventListener("click", (event) => {
     }
 
     let result = winCalculator(player_pick); //calculate result
+    console.log(result);
     rollHands(player_hand_index, Computer_hand_index); //run hands move
     setTimeout(() => {
       point_announce(result); //announce results
@@ -187,12 +205,34 @@ window.addEventListener("click", (event) => {
 // -----------------------------------------------------End of select round Script
 
 // ST of Final result Script -----------------------------------------------
+play_again_btn.addEventListener("mouseover", () => {
+  //Hover sound for play again button
+
+  Hover_sound.pause(); //click sound
+  Hover_sound.currentTime = 0;
+  Hover_sound.play();
+});
+
+play_again_btn.addEventListener("click", () => {
+  //Hover sound for play again button
+  Click_sound.pause(); //click sound
+  Click_sound.currentTime = 0;
+  Click_sound.play();
+  Final_Result_Section_out();
+  setTimeout(() => {
+    Select_Round_Section_in();
+  }, 1000);
+});
 
 // -------------------------------------------------End of Final result Script
 
+// -------------------------------------------------------------------------------
 // Funcitons Library -------------------------------------------------------------
+// ----------------------------------------------------------------------------------
 // Login in Animations and sounds
 function login_in() {
+  Intro_music.pause();
+  Intro_music.currentTime = 0;
   Intro_music.play(); //play background intro
   Login_Section.style.display = "block";
   intro_vs.classList.add("intro_vs_appear"); // vs icon appear
@@ -215,14 +255,18 @@ function login_out() {
 // Select_Round_Section_in Animations and sounds
 function Select_Round_Section_in() {
   Play_Music.loop = true;
-  Play_Music.play();
+  Play_Music.currentTime = 0;
+  Play_Music.play(); //play music from st
+  Choose_Box.classList.add("Choose_Box_up"); //show pick box
+  right_hand.setAttribute("src", handslinks[0]);
+  left_hand.setAttribute("src", handslinks[0]); //reset hands to rock
   Select_Round_Section.style.display = "block";
-  player_name_p.textContent = user_name;
+  player_name_p.textContent = user_name; //write player name
   player_score_span.textContent = 0;
-  Computer_score_span.textContent = 0;
-  round_num.textContent = 9;
+  Computer_score_span.textContent = 0; //reset scores
+  round_num.textContent = 1; //reset round counter
   setTimeout(() => {
-    round_announce(round_num.textContent);
+    round_announce(round_num.textContent); //announce first round
   }, 1000);
 }
 // Select_Round_Section_out Animations and sounds
@@ -230,6 +274,8 @@ function Select_Round_Section_out() {
   Play_Music.pause();
   Select_Round_Section.classList.add("Select_Round_Section_out");
   setTimeout(() => {
+    Select_Round_Section.classList.remove("Select_Round_Section_out");
+    Choose_Box.classList.remove("Choose_Box_down");
     Select_Round_Section.style.display = "none";
   }, 1000);
 }
@@ -344,6 +390,7 @@ function Final_Result_Section_in(player_score, computer_score) {
       result_txt.textContent = "You Won!";
       result_txt.style.color = "#FFB332";
       setTimeout(() => {
+        WinGame_sound.currentTime = 0;
         WinGame_sound.play();
       }, 1000);
       break;
@@ -352,6 +399,7 @@ function Final_Result_Section_in(player_score, computer_score) {
       result_txt.textContent = "You Lost!";
       result_txt.style.color = "#FF3636";
       setTimeout(() => {
+        LoseGame_sound.currentTime = 0;
         LoseGame_sound.play();
       }, 1000);
       break;
@@ -360,6 +408,7 @@ function Final_Result_Section_in(player_score, computer_score) {
       result_txt.textContent = "Draw!";
       result_txt.style.color = "#FF3636";
       setTimeout(() => {
+        LoseGame_sound.currentTime = 0;
         DrawGame_sound.play();
       }, 1000);
       break;
@@ -377,5 +426,6 @@ function Final_Result_Section_out() {
   Final_Result_Section.classList.add("Final_Result_Section_out");
   setTimeout(() => {
     Final_Result_Section.style.display = "none";
+    Final_Result_Section.classList.remove("Final_Result_Section_out");
   }, 1000);
 }
