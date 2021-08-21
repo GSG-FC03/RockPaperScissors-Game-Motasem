@@ -309,11 +309,11 @@ body {
 }
 
 .Choose_Box_down {
-  animation: 2s Choose_Box_down forwards;
+  animation: 0.5s Choose_Box_down forwards;
 }
 
 .Choose_Box_up {
-  animation: 2s Choose_Box_up forwards;
+  animation: 0.5s Choose_Box_up forwards;
 }
 
 .Choose_text {
@@ -365,7 +365,7 @@ body {
   font-size: 12vh;
   font-weight: 900;
   color: rgb(59, 236, 59);
-  animation: point_move 1s forwards;
+  animation: point_move 2s forwards;
 }
 
 .lose_point {
@@ -376,7 +376,19 @@ body {
   font-size: 12vh;
   font-weight: 900;
   color: #ff3636;
-  animation: point_move 1s forwards;
+  animation: point_move 2s forwards;
+}
+
+.draw_point {
+  display: none;
+  position: absolute;
+  top: 25vh;
+  width: 100%;
+  text-align: center;
+  font-size: 8vh;
+  font-weight: 900;
+  color: #FF3636;
+  animation: point_move 2s forwards;
 }
 
 @keyframes Select_Round_Section_in {
@@ -403,7 +415,7 @@ body {
 }
 
 @keyframes point_move {
-  50% {
+  0% {
     opacity: 100%;
   }
   100% {

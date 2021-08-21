@@ -22,8 +22,12 @@ const paper_pick = document.getElementsByClassName("paper_pick")[0];
 const scissors_pick = document.getElementsByClassName("scissors_pick")[0];
 const win_point = document.getElementsByClassName("win_point")[0];
 const lose_point = document.getElementsByClassName("lose_point")[0];
-const player_score_span = document.getElementsByClassName("player_score_span")[0];
-const Computer_score_span = document.getElementsByClassName("Computer_score_span")[0];
+const draw_point = document.getElementsByClassName("draw_point")[0];
+const player_score_span =
+  document.getElementsByClassName("player_score_span")[0];
+const Computer_score_span = document.getElementsByClassName(
+  "Computer_score_span"
+)[0];
 
 //Get All Sounds
 const Intro_music = new Audio("./assets/sounds/Intro.mp3");
@@ -37,8 +41,10 @@ const Round_bell_sound = new Audio("./assets/sounds/Round_bell.mp3");
 const MoveHand_sound = new Audio("./assets/sounds/MoveHand.wav");
 const WinPoint_sound = new Audio("./assets/sounds/WinPoint.mp3");
 const LosePoint_sound = new Audio("./assets/sounds/LosePoint.mp3");
+const DrawPoint_sound = new Audio("./assets/sounds/Drawpoint.mp3");
 const WinGame_sound = new Audio("./assets/sounds/WinGame.wav");
 const LoseGame_sound = new Audio("./assets/sounds/LoseGame.mp3");
+const DrawGame_sound = new Audio("./assets/sounds/DrawGame.mp3");
 
 //Define Variables
 let user_name = "";
@@ -48,8 +54,10 @@ const handslinks = [
   "./assets/paper.png",
   "./assets/scissors.png",
 ];
-let randomPick = 0;
-let computer_pick=''
+let computer_pick = "";
+let player_pick = "";
+let player_hand_index = 0;
+let Computer_hand_index = 0;
 
 // -------------------------------------------------End of Define Basic Element
 
@@ -79,31 +87,105 @@ login_btn.addEventListener("click", () => {
 // -------------------------------------------------End of Login section Script
 
 // ST of select round Script -----------------------------------------------
-rock_pick.addEventListener("mouseover", () => {
-  Hover_sound.play();
-});
-paper_pick.addEventListener("mouseover", () => {
-  Hover_sound.play();
-});
-scissors_pick.addEventListener("mouseover", () => {
-  Hover_sound.play();
+
+window.addEventListener("mouseover", (event) => {
+  //Hover effect on pick buttons
+  if (
+    event.target.parentElement.getAttribute("class") == "rock_pick" ||
+    event.target.parentElement.getAttribute("class") == "paper_pick" ||
+    event.target.parentElement.getAttribute("class") == "scissors_pick"
+  ) {
+    Hover_sound.play();
+  }
 });
 
-rock_pick.addEventListener("click", () => {
-  Click_sound.play();
-  point_announce("win");
-});
-paper_pick.addEventListener("click", () => {
-  Click_sound.play();
-  point_announce("lose");
-});
-scissors_pick.addEventListener("click", () => {
-  Click_sound.play();
-  console.log(winCalculator ('scissors'))
+window.addEventListener("click", (event) => {
+  //click effect on pick buttons
+  if (
+    //narrow slections to buttons and in normal rounds
+    (event.target.parentElement.getAttribute("class") == "rock_pick" ||
+      event.target.parentElement.getAttribute("class") == "paper_pick" ||
+      event.target.parentElement.getAttribute("class") == "scissors_pick") &&
+    round_num.textContent < 10
+  ) {
+    Click_sound.play(); //click sound
+    Choose_Box_down(); //box down
+    switch (
+      true //define player value
+    ) {
+      case event.target.parentElement.getAttribute("class") == "rock_pick":
+        player_pick = "rock";
+        player_hand_index = 0;
+        break;
+      case event.target.parentElement.getAttribute("class") == "paper_pick":
+        player_pick = "paper";
+        player_hand_index = 1;
+        break;
+      case event.target.parentElement.getAttribute("class") == "scissors_pick":
+        player_pick = "scissors";
+        player_hand_index = 2;
+        break;
+    }
+
+    let result = winCalculator(player_pick); //calculate result
+    rollHands(player_hand_index, Computer_hand_index); //run hands move
+    setTimeout(() => {
+      point_announce(result); //announce results
+    }, 3500);
+    setTimeout(() => {
+      Choose_Box_up(); //box up
+      round_announce(parseInt(round_num.textContent) + 1); //announce next round
+    }, 5000);
+  }
+
+  if (
+    //narrow slections to buttons and in normal rounds
+    (event.target.parentElement.getAttribute("class") == "rock_pick" ||
+      event.target.parentElement.getAttribute("class") == "paper_pick" ||
+      event.target.parentElement.getAttribute("class") == "scissors_pick") &&
+    round_num.textContent == 10
+  ) {
+    Click_sound.play(); //click sound
+    Choose_Box_down(); //box down
+    switch (
+      true //define player value
+    ) {
+      case event.target.parentElement.getAttribute("class") == "rock_pick":
+        player_pick = "rock";
+        player_hand_index = 0;
+        break;
+      case event.target.parentElement.getAttribute("class") == "paper_pick":
+        player_pick = "paper";
+        player_hand_index = 1;
+        break;
+      case event.target.parentElement.getAttribute("class") == "scissors_pick":
+        player_pick = "scissors";
+        player_hand_index = 2;
+        break;
+    }
+
+    let result = winCalculator(player_pick); //calculate result
+    rollHands(player_hand_index, Computer_hand_index); //run hands move
+    setTimeout(() => {
+      point_announce(result); //announce results
+    }, 3500);
+    setTimeout(() => {
+      Select_Round_Section_out(); //end of 10 rounds
+    }, 6000);
+  }
 });
 
+// -----------------------------------------------------End of select round Script
 
-// -------------------------------------------------End of select round script Script
+
+// ST of Final result Script -----------------------------------------------
+
+
+
+
+
+
+// -------------------------------------------------End of Final result Script
 
 // Funcitons Library -------------------------------------------------------------
 // Login in Animations and sounds
@@ -133,9 +215,9 @@ function Select_Round_Section_in() {
   Play_Music.play();
   Select_Round_Section.style.display = "block";
   player_name_p.textContent = user_name;
-  player_score_span.textContent=0;
-  Computer_score_span.textContent=0;
-  round_num.textContent = 1;
+  player_score_span.textContent = 0;
+  Computer_score_span.textContent = 0;
+  round_num.textContent = 7;
   setTimeout(() => {
     round_announce(round_num.textContent);
   }, 1000);
@@ -159,7 +241,7 @@ function Choose_Box_down() {
   Choose_Box.classList.add("Choose_Box_down");
 }
 // rollHands Animations and sounds
-function rollHands(user_hand_index, Computer_hand_index) {
+function rollHands(player_hand_index, Computer_hand_index) {
   right_hand.setAttribute("src", handslinks[0]);
   left_hand.setAttribute("src", handslinks[0]);
   right_hand.classList.add("right_hand_roll");
@@ -179,7 +261,7 @@ function rollHands(user_hand_index, Computer_hand_index) {
   setTimeout(() => {
     //change the hand based on parameters
     right_hand.setAttribute("src", handslinks[Computer_hand_index]);
-    left_hand.setAttribute("src", handslinks[user_hand_index]);
+    left_hand.setAttribute("src", handslinks[player_hand_index]);
     right_hand.classList.remove("right_hand_roll");
     left_hand.classList.remove("left_hand_roll");
   }, 3000);
@@ -198,48 +280,55 @@ function round_announce(rnd_num) {
 //Win Point function Animations and sounds
 function point_announce(result) {
   if (result == "win") {
-    player_score_span.textContent=parseInt(player_score_span.textContent)+1;
+    player_score_span.textContent = parseInt(player_score_span.textContent) + 1;
     WinPoint_sound.play();
     win_point.style.display = "block";
     setTimeout(() => {
       win_point.style.display = "none";
     }, 1000);
   } else if (result == "lose") {
-    Computer_score_span.textContent=parseInt(Computer_score_span.textContent)+1;
+    Computer_score_span.textContent =
+      parseInt(Computer_score_span.textContent) + 1;
     LosePoint_sound.play();
     lose_point.style.display = "block";
     setTimeout(() => {
       lose_point.style.display = "none";
     }, 1000);
+  } else if (result == "draw") {
+    DrawPoint_sound.play();
+    draw_point.style.display = "block";
+    setTimeout(() => {
+      draw_point.style.display = "none";
+    }, 1000);
   }
 }
 
 //Win Calculator Function
-function winCalculator (player_pick) {
-let handsArrayCopy=Array.from(handsArray);
-let index= handsArrayCopy.indexOf(player_pick);
-handsArrayCopy.splice(index,1);
-randomPick=Math.round(Math.random()*1);
-computer_pick=handsArrayCopy[randomPick];
+function winCalculator(player_pick) {
+  Computer_hand_index = Math.round(Math.random() * 2);
+  computer_pick = handsArray[Computer_hand_index];
 
-switch(true) {
-case (player_pick=='rock'&&computer_pick=='scissors'):
-return 'win';
-break;
-case (player_pick=='scissors'&&computer_pick=='paper'):
-return 'win';
-break;
-case (player_pick=='paper'&&computer_pick=='rock'):
-return 'win';
-break;
-case (player_pick=='rock'&&computer_pick=='paper'):
-return 'lose';
-break;
-case (player_pick=='paper'&&computer_pick=='scissors'):
-return 'lose';
-break;
-case (player_pick=='scissors'&&computer_pick=='rock'):
-return 'lose';
-break;
-}
+  switch (true) {
+    case player_pick == computer_pick:
+      return "draw";
+      break;
+    case player_pick == "rock" && computer_pick == "scissors":
+      return "win";
+      break;
+    case player_pick == "scissors" && computer_pick == "paper":
+      return "win";
+      break;
+    case player_pick == "paper" && computer_pick == "rock":
+      return "win";
+      break;
+    case player_pick == "rock" && computer_pick == "paper":
+      return "lose";
+      break;
+    case player_pick == "paper" && computer_pick == "scissors":
+      return "lose";
+      break;
+    case player_pick == "scissors" && computer_pick == "rock":
+      return "lose";
+      break;
+  }
 }
