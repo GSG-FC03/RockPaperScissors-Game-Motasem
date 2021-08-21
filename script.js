@@ -28,6 +28,11 @@ const player_score_span =
 const Computer_score_span = document.getElementsByClassName(
   "Computer_score_span"
 )[0];
+const Final_Result_Section = document.getElementsByClassName(
+  "Final_Result_Section"
+)[0];
+const result_img = document.getElementsByClassName("result_img")[0];
+const result_txt = document.getElementsByClassName("result_txt")[0];
 
 //Get All Sounds
 const Intro_music = new Audio("./assets/sounds/Intro.mp3");
@@ -139,7 +144,7 @@ window.addEventListener("click", (event) => {
   }
 
   if (
-    //narrow slections to buttons and in normal rounds
+    //narrow slections to buttons and in normal rounds & if we are in final round
     (event.target.parentElement.getAttribute("class") == "rock_pick" ||
       event.target.parentElement.getAttribute("class") == "paper_pick" ||
       event.target.parentElement.getAttribute("class") == "scissors_pick") &&
@@ -171,7 +176,11 @@ window.addEventListener("click", (event) => {
     }, 3500);
     setTimeout(() => {
       Select_Round_Section_out(); //end of 10 rounds
-    }, 6000);
+      Final_Result_Section_in(
+        player_score_span.textContent,
+        Computer_score_span.textContent
+      );
+    }, 5500);
   }
 });
 
@@ -211,7 +220,7 @@ function Select_Round_Section_in() {
   player_name_p.textContent = user_name;
   player_score_span.textContent = 0;
   Computer_score_span.textContent = 0;
-  round_num.textContent = 7;
+  round_num.textContent = 9;
   setTimeout(() => {
     round_announce(round_num.textContent);
   }, 1000);
@@ -325,4 +334,48 @@ function winCalculator(player_pick) {
       return "lose";
       break;
   }
+}
+
+//Show result section based on player and computer socre + sounds + img + text and animations
+function Final_Result_Section_in(player_score, computer_score) {
+  switch (true) {
+    case player_score > computer_score: //wining case
+      result_img.setAttribute("src", "./assets/winner.png");
+      result_txt.textContent = "You Won!";
+      result_txt.style.color = "#FFB332";
+      setTimeout(() => {
+        WinGame_sound.play();
+      }, 1000);
+      break;
+    case player_score < computer_score: //losing case
+      result_img.setAttribute("src", "./assets/loser.png");
+      result_txt.textContent = "You Lost!";
+      result_txt.style.color = "#FF3636";
+      setTimeout(() => {
+        LoseGame_sound.play();
+      }, 1000);
+      break;
+    case player_score == computer_score: //draw case
+      result_img.setAttribute("src", "./assets/Draw.png");
+      result_txt.textContent = "Draw!";
+      result_txt.style.color = "#FF3636";
+      setTimeout(() => {
+        DrawGame_sound.play();
+      }, 1000);
+      break;
+  }
+
+  setTimeout(() => {
+    Final_Result_Section.style.display = "block"; //show the results section
+  }, 1000);
+}
+// Select_Round_Section_out Animations and sounds
+function Final_Result_Section_out() {
+  WinGame_sound.pause();
+  LoseGame_sound.pause();
+  DrawGame_sound.pause();
+  Final_Result_Section.classList.add("Final_Result_Section_out");
+  setTimeout(() => {
+    Final_Result_Section.style.display = "none";
+  }, 1000);
 }
