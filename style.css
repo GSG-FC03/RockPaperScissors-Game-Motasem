@@ -137,20 +137,20 @@ body {
 }
 @keyframes intro_righ_hand_move {
   0% {
-    right: 10vw;
+    transform: translate(30vw,0vh);
     opacity: 0%;
   }
-  20% {
+  50% {
     opacity: 100%;
   }
 }
 
 @keyframes intro_left_hand_move {
   0% {
-    left: 12vw;
+    transform: translate(-20vw,0vh) scaleX(-1);
     opacity: 0%;
   }
-  20% {
+  50% {
     opacity: 100%;
   }
 }
@@ -178,7 +178,7 @@ body {
 
 /* St of select round section ------------------- */
 .Select_Round_Section {
-  display: none;
+  display: block;
   animation: Select_Round_Section_in 1s forwards;
 }
 
@@ -559,3 +559,48 @@ body {
 }
 
 /* -------------------------------end of Final-Result-Section*/
+
+
+@media (max-width: 812px) {
+  body {
+    height: 100vh;
+    width: 100vw;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    background-image: linear-gradient(to right, #ffc3a0 0%, #ffafbd 100%);
+    background-size: cover;
+  }
+  
+  #background_elipse {
+    border: 2vh solid #ff3636;
+  }
+  
+  .intro_right_hand{
+    right: 9vw;
+    height: 13vh;
+  }
+
+  .intro_left_hand{
+    top: 22vh;
+    left: 14vw;
+    height: 13vh;
+  }
+
+.intro_vs{
+  top: 21vh;
+  left: 24vw;
+  height: 23vh;
+}
+
+.input_name{
+width: 76vw;
+left: 11.5vw;
+}
+
+.login_btn{
+  width: 55vw;
+  left: 23.5vw;
+  }
+
+
+}
