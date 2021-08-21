@@ -177,13 +177,7 @@ window.addEventListener("click", (event) => {
 
 // -----------------------------------------------------End of select round Script
 
-
 // ST of Final result Script -----------------------------------------------
-
-
-
-
-
 
 // -------------------------------------------------End of Final result Script
 

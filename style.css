@@ -182,7 +182,7 @@ body {
   animation: Select_Round_Section_in 1s forwards;
 }
 
-.Select_Round_Section_out{
+.Select_Round_Section_out {
   animation: Select_Round_Section_out 1s forwards;
 }
 
@@ -387,22 +387,26 @@ body {
   text-align: center;
   font-size: 8vh;
   font-weight: 900;
-  color: #FF3636;
+  color: #ff3636;
   animation: point_move 2s forwards;
 }
 
 @keyframes Select_Round_Section_in {
-  0%{
+  0% {
     opacity: 0;
   }
-  100%{opacity: 1;}
+  100% {
+    opacity: 1;
+  }
 }
 
 @keyframes Select_Round_Section_out {
-  0%{
+  0% {
     opacity: 1;
   }
-  100%{opacity: 0;}
+  100% {
+    opacity: 0;
+  }
 }
 
 @keyframes hand_up_down {
@@ -443,7 +447,7 @@ body {
 }
 
 @keyframes banner_round_announce_move {
- 50% {
+  50% {
     transform: scale(1.2, 1.2);
   }
 }
@@ -466,3 +470,92 @@ body {
   }
 }
 /* -------------------------------end of select round section*/
+
+/* St of Final-Result-Section ------------------------------------ */
+
+.Final_Result_Section {
+  display: block;
+  animation: Final_Result_Section_in 1s forwards;
+}
+
+.Final_Result_Section_out {
+  animation: Final_Result_Section_out 1s forwards;
+}
+
+.result_img_div {
+  display: flex;
+  position: absolute;
+  width: 100%;
+  justify-content: center;
+  top: 16vh;
+}
+
+.result_img {
+  height: 41vh;
+  animation: result_img_rotate 1s linear infinite;
+}
+
+.result_txt {
+  position: absolute;
+  color: #ffb332;
+  font-weight: bold;
+  top: 55vh;
+  font-size: 17vh;
+  width: 100%;
+  text-align: center;
+}
+
+.play_again_btn {
+  position: absolute;
+  height: 10vh;
+  width: 18vw;
+  top: 80vh;
+  left: 41.5vw;
+  border: none;
+  border-radius: 5vh;
+  font-size: 4vh;
+  font-weight: bold;
+  text-align: center;
+  background-color: #ff3636;
+  color: white;
+  transition: 0.2s;
+}
+
+.play_again_btn:hover {
+  transform: scale(1.1, 1.1);
+}
+
+.play_again_btn:active {
+  transform: scale(1, 1);
+}
+
+@keyframes Final_Result_Section_in {
+  0% {
+    opacity: 0;
+    transform: scale(0.5,0.5) translate(0vh,30vh);
+    
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes Final_Result_Section_out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes result_img_rotate {
+  33% {
+    transform: rotate(-0.005turn);
+  }
+  66% {
+    transform: rotate(0.005turn);
+  }
+}
+
+/* -------------------------------end of Final-Result-Section*/
